@@ -129,18 +129,20 @@ class My_Router extends CI_Router
 			{
 				if ( APPPATH != $path)
 				{					
-					$relative_path = path_diff(FCPATH.APPPATH.'controllers/', $path.'controllers/');
+					$relative_path = path_diff(APPPATH.'controllers/', $path.'controllers/');
 				}
 
 				$path = $options['path'];
 				$new_segments = $options['segments'];
 
 				$this->directory = $relative_path.implode('/', $options['sub_folders']).'/';
-						
+				
 				return $new_segments;
 			}
 		}
 
+		
+		
 		// If we've gotten this far it means that the URI does not correlate to a valid
 		// controller class.  We will now see if there is an override
 		if ( ! empty($this->routes['404_override']))
